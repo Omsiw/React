@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a,
+button {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+:root {
+    --body: #f3f5f7;
+    --success: #0a80f1; /* Синий */
+    --danger: #f35764;  /* Красный */
+    --warning: #ffc009; /* Желтый */
+    --secondary: #eaecf0; /* Светло-серый фон колонки */
+    --secondary-dark: #D5DBDB; /* Темнее серый для кнопок Назад/В работу */
+    --border: #d5d8dd;
+    --light: #ffffff;
+    --dark: #424242;     /* Основной темный текст */
+    --semi-dark: #81849b; /* Серый текст (описание) */
+}
+
+.wrapper {
+    min-height: 100vh;
+    padding: 30px 0;
+    background-color: var(--body);
+}
+
+.container {
+    /* Увеличил ширину для лучшего вида на десктопе */
+    width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px; /* Добавил боковые отступы на всякий случай */
+}
+
+.wrapper-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+}
+
+.title {
+    font-size: 32px;
+    color: var(--dark);
+}
+
+.board-row {
+    display: grid;
+    /* Адаптивная ширина колонок, но с ограничением */
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 25px; /* Немного увеличил разрыв */
+    justify-content: center; /* Центрируем, если ширина меньше */
+}
+
+.board-item {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: calc(100vh - 150px); /* Ограничим высоту колонки */
+    overflow: hidden; /* Скрываем лишнее */
+}
+
+.board-item__title {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--dark);
+    flex-shrink: 0; /* Заголовок не должен сжиматься */
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto; /* Добавляем скролл для задач */
+    padding-right: 5px; /* Небольшой отступ для скроллбара */
+    flex-grow: 1; /* Занимает оставшееся место */
+}
+/* Стилизация скроллбара (опционально) */
+.task-list::-webkit-scrollbar {
+    width: 6px;
+}
+.task-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.task-list::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 10px;
+}
+
+
+.task-item {
+    padding: 15px; /* Немного больше паддинг */
+    background-color: var(--light);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    word-wrap: break-word; /* Перенос слов */
+}
+
+.task-item__title {
+    font-size: 16px;
+    font-weight: 600; /* Сделаем жирнее */
+    color: var(--dark);
+}
+
+.task-item__description {
+    font-size: 14px;
+    color: var(--semi-dark);
+    line-height: 1.4; /* Улучшим читаемость */
+}
+
+.task-item__actions {
+    display: flex;
+    flex-wrap: wrap; /* Позволим кнопкам переноситься */
+    gap: 8px; /* Расстояние между кнопками */
+    margin-top: 10px; /* Отступ сверху */
+    justify-content: flex-start; /* Начинаем слева */
+}
+
+.btn-action {
+    border-radius: 8px; /* Чуть меньше скругление */
+    font-size: 12px;
+    font-weight: 500; /* Средняя жирность */
+    border: none;
+    padding: 6px 10px; /* Подстроил паддинг */
+    transition: filter 0.2s ease; /* Плавность для hover */
+}
+.btn-action:hover {
+    filter: brightness(110%); /* Осветление при наведении */
+}
+
+.btn-action.btn-success,
+.btn-create.btn-success {
+    background-color: var(--success);
+    color: var(--light);
+}
+
+.btn-action.btn-warning {
+    background-color: var(--warning);
+    color: var(--dark);
+}
+.btn-action.btn-warning:hover {
+    filter: brightness(105%);
+}
+
+.btn-action.btn-danger {
+    background-color: var(--danger);
+    color: var(--light);
+}
+
+/* Стиль для кнопок "Назад", "В Работу" (из Готово) */
+.btn-action.btn-secondary {
+    background-color: var(--secondary-dark); /* Темнее серого */
+    color: var(--dark);
+    /* border: 1px solid var(--border); */ /* Можно добавить рамку */
+}
+.btn-action.btn-secondary:hover {
+    filter: brightness(105%);
+}
+
+
+.btn-create {
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    padding: 10px 15px; /* Увеличил паддинг */
+    font-weight: 500;
+}
+.btn-create:hover {
+    filter: brightness(110%);
+}
+
+/* =========== НАЧАЛО: Стили Модального Окна ========== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex; /* Используем flex для центрирования */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* По умолчанию скрыто */
+    display: none;
+}
+
+/* Класс для показа модалки (нужно будет добавить через JS) */
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--light);
+    padding: 30px 40px;
+    border-radius: 15px;
+    min-width: 400px;
+    max-width: 500px; /* Ограничим ширину */
+    width: 90%; /* Ширина для мобильных */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1001;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--semi-dark);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.modal-close-button:hover {
+    color: var(--dark);
+}
+
+.modal-content h2 {
+    color: var(--dark);
+    margin-bottom: 25px; /* Увеличил отступ */
+    text-align: center;
+    font-size: 24px; /* Крупнее заголовок */
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 500; /* Немного жирнее label */
+}
+
+.modal-form input[type="text"],
+.modal-form textarea {
+    padding: 12px; /* Увеличил паддинг */
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    color: var(--dark); /* Цвет текста в полях */
+}
+.modal-form input[type="text"]::placeholder,
+.modal-form textarea::placeholder {
+    color: var(--semi-dark); /* Цвет плейсхолдера */
+    opacity: 0.8;
+}
+
+
+.modal-form textarea {
+    min-height: 100px; /* Выше поле описания */
+    resize: vertical;
+}
+
+/* Кнопка отправки в модалке */
+.modal-form button[type="submit"] {
+    padding: 12px 20px; /* Увеличил паддинг */
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    background-color: var(--success);
+    color: var(--light);
+    cursor: pointer;
+    margin-top: 15px; /* Отступ сверху */
+    transition: filter 0.2s ease;
+}
+
+.modal-form button[type="submit"]:hover {
+    filter: brightness(110%);
+}
+/* =========== КОНЕЦ: Стили Модального Окна ========== */
+
+
+/* =========== НАЧАЛО: Стили для Inline Редактирования ========== */
+.task-edit-inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inline-edit-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: var(--dark);
+}
+
+.inline-edit-input.title-input {
+    font-weight: 600; /* Жирный как у .task-item__title */
+    font-size: 16px;
+}
+
+.inline-edit-input.description-input {
+    min-height: 60px;
+    resize: vertical;
+    font-size: 14px;
+    color: var(--semi-dark);
+}
+
+.inline-edit-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 5px;
+}

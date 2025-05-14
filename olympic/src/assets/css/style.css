@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'Paris25';
+    src: url('../fonts/Paris2024-Variable.ttf');
+}
+:root {
+    --transparent: rgba(255, 255, 255, 0.417);
+    --light: #fff;
+}
+a,button {
+    text-decoration: none;
+    cursor: pointer;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Paris25', sans-serif;
+}
+.wrapper {
+    background-image: url('../images/bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.block {
+    padding: 10px 0;
+}
+.flex-container {
+    margin: 0px 40px;
+    min-height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+.flex-container.align-items-center {
+    align-items: center;
+}
+.main-action {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.btn-default {
+    background-color: var(--transparent);
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.btn-default span {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--light);
+}
+.countries-list, .disciplines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.back-btn {
+    background: transparent;
+    border: none;
+}
+.title {
+    text-align: center;
+    color: var(--light);
+    font-size: 64px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.sm-title {
+    text-align: center;
+    color: var(--light);
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.medals-count {
+    margin-bottom: 30px;
+}
+.btn-country, .btn-medals, .btn-discipline {
+    width: 100%;
+    background-color: var(--transparent);
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.btn-country .country-sm, .btn-discipline .disciplines-sm {
+    width: 42px;
+    margin-left: 20px;
+} 
+.btn-medals .medals-sm {
+    width: 32px;
+    margin-left: 20px;
+}
+.btn-country span, .btn-medals span, .btn-discipline span {
+    color: var(--light);
+    font-size: 20px;
+    font-weight: 400;
+}
+.flag-lg {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    margin-bottom: 40px;
+}
+.table thead {
+    border-bottom: 1px solid white;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.table th, .table td {
+    color: white;
+    text-align: center;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+.table th {
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 20px;
+}
+.table td {
+    font-weight: 500;
+    font-size: 18px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.medals-action {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.border-bottom {
+    border-bottom: 1px solid var(--light);
+}
+.border-bottom:last-child {
+    border: none;
+}
+.md-disciplines {
+    width: 128px;
+}
+.country-link {
+    cursor: pointer;
+    display: block;
+    text-align: left;
+    margin-left: 20px;
+    text-decoration: underline;
+    font-weight: 500;
+}

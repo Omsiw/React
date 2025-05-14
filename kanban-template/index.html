@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="wrapper-header">
+                <h1 class="title">Доска</h1>
+                <button class="btn-create btn-success">Добавить</button>
+            </div>
+            <div class="board-row">
+                <div class="board-item">
+                    <h3 class="board-item__title">Задачи (3)</h3>
+                    <div class="task-list">
+
+                        <div class="task-item">
+                            <strong class="task-item__title">Пример Задачи 2</strong>
+                            <span class="task-item__description">Вторая задача без описания.</span>
+                            <div class="task-item__actions">
+                                <button class="btn-action btn-success">В работу</button>
+                                <button class="btn-action btn-warning">Изменить</button>
+                                <button class="btn-action btn-danger">Удалить</button>
+                            </div>
+                        </div>
+                         <div class="task-item">
+                            <strong class="task-item__title">Пример Задачи 3</strong>
+                            <span class="task-item__description">Длинное описание третьей задачи, которое может занимать несколько строк и должно корректно переноситься.</span>
+                            <div class="task-item__actions">
+                                <button class="btn-action btn-success">В работу</button>
+                                <button class="btn-action btn-warning">Изменить</button>
+                                <button class="btn-action btn-danger">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-item">
+                    <h3 class="board-item__title">В работе (1)</h3>
+                    <div class="task-list">
+                        <div class="task-item">
+                            <strong class="task-item__title">Задача в Прогрессе</strong>
+                            <span class="task-item__description">Эта задача сейчас выполняется.</span>
+                            <div class="task-item__actions">
+                                <button class="btn-action btn-secondary">Назад</button> <button class="btn-action btn-success">Готово</button> <button class="btn-action btn-warning">Изменить</button>
+                                <button class="btn-action btn-danger">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-item">
+                    <h3 class="board-item__title">Готово (2)</h3>
+                    <div class="task-list">
+                         <div class="task-item">
+                            <strong class="task-item__title">Завершенная Задача 1</strong>
+                            <span class="task-item__description">Описание завершенной задачи.</span>
+                            <div class="task-item__actions">
+                                <button class="btn-action btn-secondary">В работу</button> <button class="btn-action btn-warning">Изменить</button>
+                                <button class="btn-action btn-danger">Удалить</button>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <strong class="task-item__title">Завершенная Задача 2</strong>
+                            <div class="task-item__actions">
+                                <button class="btn-action btn-secondary">В работу</button>
+                                <button class="btn-action btn-warning">Изменить</button>
+                                <button class="btn-action btn-danger">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button">×</button>
+            <h2>Новая задача</h2>
+            <form class="modal-form">
+                <label>
+                  Название:
+                  <input type="text" placeholder="Введите название задачи" required />
+                </label>
+                <label>
+                  Описание:
+                  <textarea placeholder="Введите описание (необязательно)"></textarea>
+                </label>
+                <button type="submit">Создать задачу</button>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
